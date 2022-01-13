@@ -316,3 +316,14 @@ effects.starField.startScreenEffect()
 forever(function () {
     controller.moveSprite(Guy, 100, 100)
 })
+forever(function () {
+    if (Guy.tileKindAt(TileDirection.Top, assets.tile`myTile11`)) {
+        if (game.ask("go to field?")) {
+            tiles.setTilemap(tilemap`level2`)
+            effects.starField.endScreenEffect()
+            scene.setBackgroundColor(15)
+        } else {
+            Guy.y += 8
+        }
+    }
+})
